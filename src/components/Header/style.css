@@ -1,0 +1,32 @@
+.header {
+  background-color: #2F4F4F;
+  height: 50px;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.link {
+  color: #CD5C5C;
+  text-decoration: none;
+  font-size: 18px;
+  display: inline-block;
+  height: 50px;
+  width: 80px;
+  text-align: center;
+  line-height: 48px;
+}
+
+.link:hover {
+  background-color: #434d57;
+}
+
+.mainMenu {
+  float: left;
+}
+
+.loginMenu {
+  float: right;
+}

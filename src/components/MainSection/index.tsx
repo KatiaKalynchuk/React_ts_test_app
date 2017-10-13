@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as Actions from '../../actions/actions';
 import * as style from './style.css';
-import { connect } from 'react-redux';
 
 export namespace MainSection {
   export interface Props {

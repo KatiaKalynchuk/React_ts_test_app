@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as style from './style.css';
-// import Header from '../Header/index';
 
 export namespace Article {
   export interface Props {

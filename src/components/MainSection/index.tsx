@@ -3,15 +3,15 @@ import * as Actions from '../../actions/actions';
 import * as style from './style.css';
 
 export namespace MainSection {
-  export interface Props {
+  export interface IProps {
     articles: IArticleItemData[];
     actions: typeof Actions;
   }
 }
 
-export class MainSection extends React.Component<MainSection.Props, {}> {
+export class MainSection extends React.Component<MainSection.IProps, {}> {
 
-  constructor(props?: MainSection.Props, context?: any) {
+  constructor(props?: MainSection.IProps, context?: any) {
     super(props, context);
   }
 

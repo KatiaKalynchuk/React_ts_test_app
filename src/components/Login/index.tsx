@@ -11,18 +11,14 @@ export namespace LoginPage {
 
   export interface IState {
     email: string,
-    password: string,
-    errors: object,
-    submitted: boolean
+    password: string
   }
 }
 
 class Login extends React.Component<LoginPage.IProps, LoginPage.IState> {
   state: IState = {
     email: '',
-    password: '',
-    errors: {},
-    submitted: false
+    password: ''
   };
 
   handleOnChange = (event): void => {
@@ -36,41 +32,41 @@ class Login extends React.Component<LoginPage.IProps, LoginPage.IState> {
   };
 
   signIn = (event): void => {
-    event.preventDefault();
-    console.log('this.state', this.state);
-    this.setState({ submitted: true });
     const { email, password } = this.state;
     const { dispatch } = this.props;
+    event.preventDefault();
+
     if (email && password) {
       dispatch(userActions.login(email, password));
     }
   };
 
   render() {
-    const { submitted } = this.state;
     return (
-      <form className={style.form} onSubmit={this.signIn}>
-        <h2>Login</h2>
-        <div className={style.form_group}>
-          <input
-            value={this.state.email}
-            className={style.form_control}
-            type='text'
-            name='email'
-            placeholder='email'
-            onChange={this.handleOnChange}
-          />
-          <input
-            value={this.state.password}
-            className={style.form_control}
-            type='password'
-            name='password'
-            placeholder='password'
-            onChange={this.handleOnChange}
-          />
-          <input className={style.btn} type='submit' disabled={submitted} value='Login' />
-        </div>
-      </form>
+      <div className={style.wrapForm}>
+        <form className={style.form} onSubmit={this.signIn}>
+          <h2>Login</h2>
+          <div className={style.form_group}>
+            <input
+              value={this.state.email}
+              className={style.inputField}
+              type='text'
+              name='email'
+              placeholder='email'
+              onChange={this.handleOnChange}
+            />
+            <input
+              value={this.state.password}
+              className={style.inputField}
+              type='password'
+              name='password'
+              placeholder='password'
+              onChange={this.handleOnChange}
+            />
+            <input className={style.btn} type='submit' value='Login' />
+          </div>
+        </form>
+      </div>
     );
   }
 }

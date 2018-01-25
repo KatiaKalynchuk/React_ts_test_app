@@ -2,13 +2,10 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
-//import { createBrowserHistory } from 'history';
 import { configureStore } from './store';
 import { App } from './containers/App';
 //import * as firebase from 'firebase';
 //import { firebaseApp } from './firebase';
-
-
 
 const store = configureStore();
 store.subscribe(() => {
@@ -18,8 +15,6 @@ store.subscribe(() => {
 
 import { configureFakeBackend } from './helpers/fake_backend.js';
 configureFakeBackend();
-
-// export const history = createBrowserHistory();
 
 // const config = {
 //   apiKey: "AIzaSyCu6gUeHi2J87Nw1WN11tdC8RgstUdpY3E",

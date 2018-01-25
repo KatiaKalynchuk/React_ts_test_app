@@ -4,4 +4,4 @@ export { ListArticles } from './ListArticles';
 export { Article } from './Article';
 export { ArticlePage } from './ArticlePage';
 export { Login } from './Login';
-//export { PrivateRoute } from './PrivateRoute';
+export { PrivateRoute } from './PrivateRoute';

@@ -7,7 +7,7 @@ import { RouteComponentProps } from 'react-router';
 import { Route } from 'react-router-dom';
 
 import { RootState } from '../../reducers';
-import { Header, MainSection, ListArticles, ArticlePage, Login } from '../../components';
+import { Header, MainSection, ListArticles, ArticlePage, Login, PrivateRoute } from '../../components';
 
 export namespace App {
   export interface IProps extends RouteComponentProps<void> {
@@ -18,15 +18,16 @@ export namespace App {
 }
 
 @connect(mapStateToProps, mapDispatchToProps, null, { pure: false })
+
 export class App extends React.Component<any, any> {
 
   render() {
-    const { articles, actions, children } = this.props;
+    const { actions, children } = this.props;
     return (
       <div className={style.normal}>
         {<Header />}
-        {/*<PrivateRoute exact path="/" component={MainSection} />*/}
-        <Route path="/" exact render={(props) => (<MainSection  {...props}/>)} />
+        <PrivateRoute exact path="/" component={MainSection} />
+        {/*<Route path="/" exact render={(props) => (<MainSection  {...props}/>)} />*/}
         <Route path="/Articles" render={(props) => (<ListArticles actions={actions} {...props}/>)} />
         <Route path="/ArticlePage" render={(props) => (<ArticlePage actions={actions} {...props}/>)} />
         <Route path="/Login" render={(props) => (<Login actions={actions} {...props}/>)} />

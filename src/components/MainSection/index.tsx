@@ -4,16 +4,12 @@ import * as style from './style.css';
 
 export namespace MainSection {
   export interface Props {
-    articles: ArticleItemData[];
+    articles: IArticleItemData[];
     actions: typeof Actions;
-  }
-
-  export interface State {
-    filter: ArticleFilterType;
   }
 }
 
-export class MainSection extends React.Component<MainSection.Props, MainSection.State> {
+export class MainSection extends React.Component<MainSection.Props, {}> {
 
   constructor(props?: MainSection.Props, context?: any) {
     super(props, context);

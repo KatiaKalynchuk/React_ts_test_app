@@ -1,0 +1,17 @@
+.article {
+  border: 2px solid grey;
+  border-radius: 2px;
+  max-width: 900px;
+  padding: 20px;
+  margin: 10px auto;
+}
+.link {
+  color: #CD5C5C;
+  text-decoration: none;
+  font-size: 18px;
+  display: inline-block;
+  height: 50px;
+  width: 80px;
+  text-align: center;
+  line-height: 48px;
+}

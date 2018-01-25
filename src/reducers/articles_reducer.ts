@@ -6,7 +6,7 @@ const initialState: ArticlesStoreState = [{
   text: ''
 }];
 
-export default handleActions<ArticlesStoreState, ArticleItemData>({
+export default handleActions<ArticlesStoreState, IArticleItemData>({
   [Actions.ITEMS_HAS_ERRORED]: (state, action) => {
     console.log(action);
     return [{

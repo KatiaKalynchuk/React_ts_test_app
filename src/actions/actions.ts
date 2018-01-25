@@ -2,7 +2,7 @@ import { createAction } from 'redux-actions';
 import * as Actions from '../constants/actions';
 import * as fetchJsonp from 'fetch-jsonp';
 
-export const addArticle = createAction<ArticleItemData>(Actions.ADD_ARTICLE);
+export const addArticle = createAction<IArticleItemData>(Actions.ADD_ARTICLE);
 
 export const itemsHasErrored = createAction(Actions.ITEMS_HAS_ERRORED, (hasErrored: boolean) => ({hasErrored}));
 export const itemsIsLoading = createAction(Actions.ITEMS_IS_LOADING, (isLoading: boolean) => ({isLoading}));
@@ -35,9 +35,11 @@ async function fetchAsync (url, dispatch) {
   dispatch(itemsIsLoading(true));
   try {
     response = await fetchJsonp(url);
+    console.log('data', response);
     data = await response.json();
     dispatch(itemsFetchDataSuccess(data));
   } catch (error) {
+    console.log('data', error);
     dispatch(itemsHasErrored(true));
   }
 }

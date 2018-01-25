@@ -1,13 +1,25 @@
-/** TodoMVC model definitions **/
+/** App model definitions **/
 
-declare interface ArticleItemData {
+declare interface IArticleItemData {
   id?: ArticleItemId;
   text?: string;
   completed?: boolean;
 }
 
+declare interface IUsersData {
+  loggingIn?: boolean;
+  user?: object
+}
+
+declare interface IUserData {
+  loading?: boolean;
+  item?: object;
+  error?: object
+}
 declare type ArticleItemId = number;
 
-declare type ArticleFilterType = 'SHOW_ALL' | 'SHOW_ACTIVE' | 'SHOW_COMPLETED';
+declare type ArticlesStoreState = IArticleItemData[];
 
-declare type ArticlesStoreState = ArticleItemData[];
+declare type UsersStoreState = IUsersData[];
+
+declare type UserState = IUserData[];

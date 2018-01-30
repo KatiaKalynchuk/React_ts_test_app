@@ -25,7 +25,7 @@ class Login extends React.Component<LoginPage.IProps, LoginPage.IState> {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    console.log(target);
+
     this.setState({
       [name]: value
     })

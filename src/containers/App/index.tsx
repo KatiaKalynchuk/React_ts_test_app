@@ -8,12 +8,14 @@ import { Route } from 'react-router-dom';
 
 import { RootState } from '../../reducers';
 import { Header, MainSection, ListArticles, ArticlePage, Login, PrivateRoute } from '../../components';
+import { Todo } from '../../routes/Todo/containers/TodoPage'
 
 export namespace App {
   export interface IProps extends RouteComponentProps<void> {
     articles: IArticleItemData[];
     actions: typeof Actions;
     children: React.ReactNode;
+    todos: ITodoItemData[]
   }
 }
 
@@ -22,13 +24,14 @@ export namespace App {
 export class App extends React.Component<any, any> {
 
   render() {
-    const { actions, children } = this.props;
+    const { todos, articles, actions, children } = this.props;
+
     return (
       <div className={style.normal}>
         {<Header />}
         <PrivateRoute exact path="/" component={MainSection} />
-        {/*<Route path="/" exact render={(props) => (<MainSection  {...props}/>)} />*/}
-        <Route path="/Articles" render={(props) => (<ListArticles actions={actions} {...props}/>)} />
+        <Route path="/Todo" render={(props) => (<Todo todos={todos} {...props}/>)} />
+        <Route path="/Articles" render={(props) => (<ListArticles actions={actions} articles={articles}/>)} />
         <Route path="/ArticlePage" render={(props) => (<ArticlePage actions={actions} {...props}/>)} />
         <Route path="/Login" render={(props) => (<Login actions={actions} {...props}/>)} />
         {children}
@@ -39,7 +42,8 @@ export class App extends React.Component<any, any> {
 
 function mapStateToProps(state: RootState) {
   return {
-    articles_reducer: state.articles_reducer
+    articles: state.articles_reducer,
+    todos: state.todos_reducer
   };
 }
 

@@ -1,0 +1,37 @@
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+button,
+input[type="checkbox"] {
+  outline: none;
+}
+
+.main {
+  position: relative;
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+.main input::-webkit-input-placeholder {
+  font-weight: 300;
+  color: #635a5a;
+}
+
+.main input::-moz-placeholder {
+  font-weight: 300;
+  color: #635a5a;
+}
+
+.main input {
+  font-weight: 300;
+  color: #635a5a;
+}

@@ -1,6 +1,5 @@
 import { createAction } from 'redux-actions';
 import * as Actions from '../constants/actions';
-import * as fetchJsonp from 'fetch-jsonp';
 
 export const addArticle = createAction<IArticleItemData>(Actions.ADD_ARTICLE);
 
@@ -9,24 +8,7 @@ export const itemsIsLoading = createAction(Actions.ITEMS_IS_LOADING, (isLoading:
 export const itemsFetchDataSuccess = createAction(Actions.ITEMS_FETCH_DATA_SUCCESS, (items) => ({items}));
 
 export function itemsFetchData(url: string): any {
-  return (dispatch) => {
-
-    let data = fetchAsync(url, dispatch);
-
-    // fetchJsonp(url, {
-    //   timeout: 10000,
-    // })
-    //   .then((response) => {
-    //     dispatch(itemsIsLoading(false));
-    //     console.log(response);
-    //     return response
-    //   }).then((json) => {
-    //     dispatch(itemsFetchDataSuccess(json));
-    // }).catch((error) => {
-    //   console.log(error)
-    //     dispatch(itemsHasErrored(true));
-    // });
-  };
+  return (dispatch) => fetchAsync(url, dispatch);
 }
 
 async function fetchAsync (url, dispatch) {
@@ -34,13 +16,13 @@ async function fetchAsync (url, dispatch) {
   let response;
   dispatch(itemsIsLoading(true));
   try {
-    response = await fetchJsonp(url);
+    response = await fetch(url);
     console.log('data', response);
     data = await response.json();
+    console.log('respons',data);
     dispatch(itemsFetchDataSuccess(data));
   } catch (error) {
     console.log('data', error);
     dispatch(itemsHasErrored(true));
   }
 }
-

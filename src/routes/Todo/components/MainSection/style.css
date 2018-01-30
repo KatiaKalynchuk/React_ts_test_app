@@ -1,0 +1,52 @@
+.main {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid #e6e6e6;
+}
+
+.normal {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.normal li {
+  position: relative;
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
+}
+
+.normal li.editing {
+  border-bottom: none;
+  padding: 0;
+}
+
+.normal li.editing .edit {
+  display: block;
+  width: 506px;
+  padding: 13px 17px 12px 17px;
+  margin: 0 0 0 43px;
+}
+
+.normal li label {
+  padding: 15px 60px 15px 15px;
+  margin-left: 45px;
+  display: block;
+  line-height: 1.2;
+  transition: color 0.4s;
+}
+
+.normal li.completed label {
+  color: #d9d9d9;
+  text-decoration: line-through;
+}
+
+.toggleAll {
+  position: absolute;
+  top: -55px;
+  left: 10px;
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  border: none;
+}

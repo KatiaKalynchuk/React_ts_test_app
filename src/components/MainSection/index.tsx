@@ -11,12 +11,7 @@ export namespace MainSection {
 
 export class MainSection extends React.Component<MainSection.IProps, {}> {
 
-  constructor(props?: MainSection.IProps, context?: any) {
-    super(props, context);
-  }
-
   render() {
-
     return (
       <section className={style.main}>
         <h1 className={style.h1}>This is the main page</h1>

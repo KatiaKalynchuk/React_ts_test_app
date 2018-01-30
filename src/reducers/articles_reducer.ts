@@ -3,7 +3,10 @@ import * as Actions from '../constants/actions';
 
 const initialState: ArticlesStoreState = [{
   id: 0,
-  text: ''
+  createdAt: new Date,
+  name: '',
+  imageUrl: '',
+  content: ''
 }];
 
 export default handleActions<ArticlesStoreState, IArticleItemData>({

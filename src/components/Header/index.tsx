@@ -11,6 +11,7 @@ export class Header extends React.Component<{}, {}> {
           <div className={style.mainMenu}>
            <Link className={style.link} to='/'>Home</Link>
            <Link className={style.link} to='/Articles'>Articles</Link>
+           <Link className={style.link} to='/Todo'>TodoPage</Link>
           </div>
           <div className={style.loginMenu}>
             <Link className={style.link} to='Login'>Login</Link>
